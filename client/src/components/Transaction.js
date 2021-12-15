@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { spaceFormattedNumber as format } from '../utils/format'
 import { GlobalContext } from "../context/GlobalState";
 
 export const Transaction = ({ transaction }) => {
@@ -11,10 +12,10 @@ export const Transaction = ({ transaction }) => {
     <li className={signText}>
       {transaction.text}{" "}
       <span>
-        {sign}${Math.abs(transaction.amount)}
+        {sign}${format(Math.abs(transaction.amount))}
       </span>
       <button
-        onClick={() => deleteTransaction(transaction.id)}
+        onClick={() => deleteTransaction(transaction._id)}
         className="delete-btn"
       >
         x

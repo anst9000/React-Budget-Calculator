@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import { spaceFormattedNumber as format } from '../utils/format'
 
 export const Balance = () => {
   const { transactions } = useContext(GlobalContext);
@@ -16,7 +17,7 @@ export const Balance = () => {
     <>
       <h4>Your Balance</h4>
       <h1 className={signText}>
-        {sign}${Math.abs(balance).toFixed(2)}
+        {sign}${format(Math.abs(balance).toFixed(2))}
       </h1>
     </>
   );
